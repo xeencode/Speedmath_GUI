@@ -253,7 +253,7 @@ class Answer:
         if color == 'g':
             self.label.config(background="lime")
         if color == 'y':
-            self.label.config(background="yellow")
+            self.label.config(background="red")
 
     def get_label_color(self):
         return self.label.cget('background')
