@@ -4,6 +4,7 @@ import random, json
 
 
 
+
 class SpeedMathGUI:
     def __init__(self, root):
         root.title('speedmath')
@@ -37,6 +38,15 @@ class SpeedMathGUI:
 
         self.new_button = ttk.Button(root, text='New', command=lambda: self.new(root, 'refresh'))
         self.new_button.place(x= 350, y= 365)
+
+
+        self.start_stop = ttk.Label(root, text='Start', anchor='center', font= ('Calibri Light', 12, 'bold'))
+        self.start_stop.place(x= 450, y = 360)
+        self.start_stop.bind('<Button-1>', lambda e: self.time_elapsed())
+        self.show_time_elsepsed = ttk.Label(root, text='00:00', anchor='center')
+        self.show_time_elsepsed.place(x= 500, y = 360)
+
+
 
 
         ttk.Label(root, text='JishukhNetwork', font= ('Calibri Light', 12, 'bold', 'italic')).place(x= 480,y= 380)
@@ -172,6 +182,13 @@ class SpeedMathGUI:
                 elif str(self.my_answer_array[i+1][j+1].get_label_color()) == 'yellow':
                     if self.answer_array[i][j] == self.my_answer_array[i+1][j+1].label_value():
                         self.my_answer_array[i+1][j+1].change_label_color('g')
+
+    def time_elapsed(self):
+        s = self.start_stop.cget('text')
+        if s == 'Start':
+            self.start_stop.config(text='Stop')
+        else:
+            self.start_stop.config(text='Start')
 
 
 
