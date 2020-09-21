@@ -183,7 +183,7 @@ class SpeedMathGUI:
                     if self.answer_array[i][j] == self.my_answer_array[i+1][j+1].label_value():
                         self.my_answer_array[i+1][j+1].change_label_color('g')
 
-    def time_elapsed(self):
+    def time_elapsed(self): # we are adding time feature in this code
         s = self.start_stop.cget('text')
         if s == 'Start':
             self.start_stop.config(text='Stop')
