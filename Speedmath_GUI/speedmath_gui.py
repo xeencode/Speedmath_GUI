@@ -187,9 +187,13 @@ class SpeedMathGUI:
         s = self.start_stop.cget('text')
         if s == 'Start':
             self.start_stop.config(text='Stop')
+            time_start = datetime.now()
+            self.time_showing(time_start)
         else:
             self.start_stop.config(text='Start')
 
+    def time_showing(self, start_time):
+        print(start_time)        
 
 
 
