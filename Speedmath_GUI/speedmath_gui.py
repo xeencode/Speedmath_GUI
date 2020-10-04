@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk, messagebox
 import random, json
+from datetime import datetime
 
 
 
@@ -40,16 +41,33 @@ class SpeedMathGUI:
         self.new_button.place(x= 350, y= 365)
 
 
-        self.start_stop = ttk.Label(root, text='Start', anchor='center', font= ('Calibri Light', 12, 'bold'))
+        self.start_stop = ttk.Label(root, text='Start :', anchor='center', font= ('Calibri Light', 12, 'bold'))
         self.start_stop.place(x= 450, y = 360)
         self.start_stop.bind('<Button-1>', lambda e: self.time_elapsed())
-        self.show_time_elsepsed = ttk.Label(root, text='00:00', anchor='center')
+        self.show_time_elsepsed = ttk.Label(root, text='00:00', anchor='center', font= ('Calibri Light', 12))
         self.show_time_elsepsed.place(x= 500, y = 360)
 
 
 
 
         ttk.Label(root, text='JishukhNetwork', font= ('Calibri Light', 12, 'bold', 'italic')).place(x= 490,y= 390)
+    def time_elapsed(self): # we are adding time feature in this code
+        s = self.start_stop.cget('text')
+        if s == 'Start :':
+            self.show_time_elsepsed.config(text='workk....')
+            self.start_stop.config(text='Stop :')
+            self.started_time = datetime.now()
+        else:
+            stopped_time = datetime.now()
+            print(self.started_time, stopped_time)
+            elapsed_time = (stopped_time - self.started_time).seconds
+            self.show_time_elsepsed.config(text=str(elapsed_time)+' sec(s)')
+            self.start_stop.config(text='Start :')
+
+    # def time_showing(self, start_time):
+    #     print(start_time) 
+
+
     def answer_array_fun(self, l1, l2):
          ####### creating an answer arrray so that I can check my answers
         answer_array = []
@@ -182,18 +200,7 @@ class SpeedMathGUI:
                 elif str(self.my_answer_array[i+1][j+1].get_label_color()) == 'yellow':
                     if self.answer_array[i][j] == self.my_answer_array[i+1][j+1].label_value():
                         self.my_answer_array[i+1][j+1].change_label_color('g')
-
-    def time_elapsed(self): # we are adding time feature in this code
-        s = self.start_stop.cget('text')
-        if s == 'Start':
-            self.start_stop.config(text='Stop')
-            time_start = datetime.now()
-            self.time_showing(time_start)
-        else:
-            self.start_stop.config(text='Start')
-
-    def time_showing(self, start_time):
-        print(start_time)        
+     
 
 
 
