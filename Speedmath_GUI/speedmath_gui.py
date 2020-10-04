@@ -8,7 +8,7 @@ import random, json
 class SpeedMathGUI:
     def __init__(self, root):
         root.title('speedmath')
-        root.geometry('600x400')
+        root.geometry('610x410')
         root.resizable(False, False)
 
         ###### adding event for when an entry is focused
@@ -49,7 +49,7 @@ class SpeedMathGUI:
 
 
 
-        ttk.Label(root, text='JishukhNetwork', font= ('Calibri Light', 12, 'bold', 'italic')).place(x= 480,y= 380)
+        ttk.Label(root, text='JishukhNetwork', font= ('Calibri Light', 12, 'bold', 'italic')).place(x= 490,y= 390)
     def answer_array_fun(self, l1, l2):
          ####### creating an answer arrray so that I can check my answers
         answer_array = []
