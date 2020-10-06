@@ -59,9 +59,8 @@ class SpeedMathGUI:
             self.started_time = datetime.now()
         else:
             stopped_time = datetime.now()
-            print(self.started_time, stopped_time)
             elapsed_time = (stopped_time - self.started_time).seconds
-            self.show_time_elsepsed.config(text=str(elapsed_time)+' sec(s)')
+            self.show_time_elsepsed.config(text= f'{elapsed_time//60} min : ' + str(elapsed_time%60)+' sec')
             self.start_stop.config(text='Start :')
 
     # def time_showing(self, start_time):
